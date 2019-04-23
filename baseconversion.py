@@ -1,3 +1,6 @@
+
+# William Skagerström - 23-04-2019
+
 from string import ascii_lowercase
 from string import ascii_uppercase
 import string

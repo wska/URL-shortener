@@ -1,3 +1,5 @@
+# William Skagerström - 23-04-2019
+
 import sqlite3
 from sqlite3 import OperationalError
 
@@ -14,7 +16,6 @@ def initialize_table():
         try:
             cursor.execute(create_table)
         except OperationalError as e:
-            print(e)
             pass
 
 # Removes all previous entries in the DB
@@ -25,13 +26,13 @@ def reset_table():
         try:
             cursor.execute(reset)
         except OperationalError as e:
-            print(e)
             pass
     initialize_table()
 
 
 def main():
     initialize_table()
+    reset_table()
 
 if __name__ == "__main__":
     main()

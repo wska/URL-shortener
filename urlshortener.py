@@ -1,3 +1,5 @@
+# William Skagerström - 23-04-2019
+
 from flask import Flask, request, render_template, redirect
 from sqlite3 import OperationalError
 import string
@@ -6,12 +8,11 @@ from baseconversion import base10, base62
 from urllib.parse import urlparse
 
 
-
+hostAddress = 'http://localhost:8000/'
 app = Flask(__name__)
-hostAddress = 'http://localhost:5000/'
 
 
-# App method for GET and POST
+# App method for index
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
