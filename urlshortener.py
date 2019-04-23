@@ -8,8 +8,9 @@ from baseconversion import base10, base62
 from urllib.parse import urlparse
 
 
-hostAddress = 'http://localhost:8000/'
+
 app = Flask(__name__)
+hostAddress = 'http://localhost:8000/'
 
 
 # App method for index
@@ -30,7 +31,11 @@ def index():
             databaseEntry = queryURL.fetchone()
             
             if databaseEntry is not None: # If not none, return the already existing shortened URL in the database
-                return render_template('index.html', shortenedUrl=hostAddress+str(base62(databaseEntry[0])))
+
+                indexToBase62 = base62(databaseEntry[0]) # Converts the entry index in the database to base 62 and uses it as the shortened URL
+
+                return render_template('index.html', shortenedUrl=hostAddress+str(indexToBase62)) # Render template fetches the HTML file in /template
+
 
             res = cursor.execute('INSERT INTO URL (URL) VALUES (?)', [url])
             encoded_string = base62(res.lastrowid)
@@ -45,7 +50,8 @@ def index():
 @app.route('/<shortenedUrl>')
 def redirect_url(shortenedUrl):
 
-    urlIndex = base10(shortenedUrl)
+    urlIndex = base10(shortenedUrl) # Converts the shortened URL back to base 10 so that it may be used to index the database
+
     url = hostAddress 
 
     with sqlite3.connect('links.db') as conn:
