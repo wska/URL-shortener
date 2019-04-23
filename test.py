@@ -5,7 +5,7 @@ import requests
 import random
 import string
 import unittest
-from init import initialize_table, reset_table
+#from init import initialize_table, reset_table
 
 from urlshortener import *
 from baseconversion import *
@@ -23,9 +23,9 @@ class tests(unittest.TestCase):
 
 
     
-    ''' Stress test. Creates 500 fake urls and spams the server with them on all available processors in parallel.'''
+    ''' Stress test. Creates 400 fake urls and spams the server with them on all available processors in parallel.'''
     def testStress(self):
-        fakeUrls = ["http://fakeUrl" + str(i) for i in range(0,500)]
+        fakeUrls = ["http://fakeUrl" + str(i) for i in range(0,400)]
         with Pool(cpu_count()) as p:
             result = p.map(makePostRequest, fakeUrls)
     

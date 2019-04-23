@@ -4,8 +4,8 @@ A small URL shortener as a assignment for an internship program.
 # Implementation specifications:
 The URL shortener was developed using Python 3.6, Flask 1.0.2 & gunicorn 19.9.0, and Sqlite3, which is included by default in Python3.
 The URL shortening algorithm is done by using base 62 encoding (covered by the regular expression [a-zA-Z0-9]). 
-Flask was used to develop the actual HTTP web server and the endpoints for the URL Shortener. I choose to use Sqlite3 and a database implementation, despite there not being strict requirement for the application to persist in its state after server shutdown.
-While Flask is an excellent libary to quickly get a HTTP API up and running, the default development server is not meant for production deloyment. However,
+Flask was used to develop the RESTful HTTP web server and the endpoints for the URL Shortener. I choose to use Sqlite3 and a database implementation, despite there not being strict requirement for the application to persist in its state after server shutdown.
+While Flask is an excellent libary to quickly get a HTTP server up and running, the default development server is not meant for production deloyment. However,
 there are plenty of WSGI server options to choose from that can handle Flask applications out of the box. For this project, I have chosen to use Green Unicorn WSGI HTTP Server, or just "gunicorn".
 
 
@@ -45,3 +45,22 @@ gunicorn -w 4 urlshortener:app
 The server then starts with 4 synchronous workers, on the default gunicorn listening address, whih is the localhost address 127.0.0.1, on port number 8000.  
 
 Executing the file init.py will wipe the content of the current database.
+
+# Using the application
+In order to test the application, one can either visit the designated port number on the localhost IP address: http://localhost:8000/
+One will be greeted by a basic HTML page that has a form that can be filled in. Once a form is submitted, it will return the content with a shortened URL that follows the http://localhost in addition to a base62 shortened url. The link can then be used to be redirected to the original URL. 
+
+One can also create a POST request, for example using the request module for python3:
+
+```
+import requests
+requests.post('http://localhost:8000/', data= {'url': url})
+```
+Where the url variable is some arbitrary URL, will return the corresponding html object as a reponse.
+
+# Testing
+I created some unittests to evaluate some of the core functionality of the application. The unittest asserts the correctness of the base conversions, and also performs a number of POST requests and validates the response code of the response object. It also stress-tests the server by sending 500 requests in paralell on all available CPU's. 
+The unittest can be executed by running the test file:
+```
+python3 test.py
+```

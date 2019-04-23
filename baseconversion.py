@@ -23,8 +23,7 @@ def base62(num, base=62):
 # Converts to base 10
 def base10(num, base=62):
     allCharacters = string.digits + ascii_lowercase + ascii_uppercase
-    limit = len(num)
     res = 0
-    for i in range(limit):
+    for i in range(len(num)):
         res = base * res + allCharacters.find(num[i])
     return res
