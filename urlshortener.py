@@ -29,15 +29,15 @@ def index():
             databaseEntry = queryURL.fetchone()
             
             if databaseEntry is not None: # If not none, return the already existing shortened URL in the database
-                return render_template('home.html', shortenedUrl=hostAddress+str(base62(databaseEntry[0])))
+                return render_template('index.html', shortenedUrl=hostAddress+str(base62(databaseEntry[0])))
 
             res = cursor.execute('INSERT INTO URL (URL) VALUES (?)', [url])
             encoded_string = base62(res.lastrowid)
             
             
-        return render_template('home.html', shortenedUrl=hostAddress + encoded_string)
+        return render_template('index.html', shortenedUrl=hostAddress + encoded_string)
     else:
-        return render_template('home.html')
+        return render_template('index.html')
 
 
 # App method URL redirects
