@@ -38,7 +38,7 @@ The shell script executes two commands. The first one calls the init.py file whi
 ```
 python3 init.py
 ```
-Afterwards, it calls the gunicorn module to launch the flask application in the main app file, which is urlshortener.py. The additional parameters includes the number of workers that processes incoming HTTP requests, and the host address used in addition to the port number.
+Afterwards, it calls the gunicorn module to launch the flask application in the main app file, which is urlshortener.py. The additional parameter is the number of workers that processes incoming HTTP requests. Typically you want to use a workers equivalent to the number of cores in the CPU.
 ```
 gunicorn -w 4 urlshortener:app
 ```
