@@ -1,10 +1,10 @@
 # URL-shortener
-A small URL shortener as a assignment for an internship program.
+A small URL shortener using Python, Flask, gunicorn, Sqlite3 and a bit of Boostrap. 
 
 # Implementation specifications:
 The URL shortener was developed using Python 3.6, Flask 1.0.2 & gunicorn 19.9.0, and Sqlite3, which is included by default in Python3.
 The URL shortening algorithm is done by using base 62 encoding (covered by the regular expression [a-zA-Z0-9]).
-Flask was used to develop the RESTful HTTP web server and the endpoints for the URL Shortener. I choose to use Sqlite3 and a database implementation, despite there not being strict requirement for the application to persist in its state after server shutdown.
+Flask was used to develop the RESTful HTTP web server and the endpoints for the URL Shortener. I choose to use Sqlite3 and a database implementation, which allows the state of the application to persist even after being shut down.
 While Flask is an excellent library to quickly get a HTTP server up and running, the default development server is not meant for production deployment. However,
 there are plenty of WSGI server options to choose from that can handle Flask applications out of the box. For this project, I have chosen to use Green Unicorn WSGI HTTP Server, or just "gunicorn".
 
