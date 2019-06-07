@@ -44,7 +44,7 @@ gunicorn -w 4 urlshortener:app
 ```
 The server then starts with 4 synchronous workers, on the default gunicorn listening address, which is the localhost address 127.0.0.1, on port number 8000. 
 
-Executing the file init.py will wipe the content of the current database.
+Executing the file will create a database if absent. There is also a function inside of init.py for wiping the current state of the database.
 
 # Using the application
 In order to test the application, one can either visit the designated port number on the localhost IP address: http://localhost:8000/
