@@ -34,7 +34,7 @@ def index():
 
                 indexToBase62 = base62(databaseEntry[0]) # Converts the entry index in the database to base 62 and uses it as the shortened URL
 
-                return render_template('index.html', shortenedUrl=hostAddress+str(indexToBase62)) # Render template fetches the HTML file in /template
+                return render_template('../index.html', shortenedUrl=hostAddress+str(indexToBase62)) # Render template fetches the HTML file in /template
 
 
             res = cursor.execute('INSERT INTO URL (URL) VALUES (?)', [url])
