@@ -11,7 +11,7 @@ there are plenty of WSGI server options to choose from that can handle Flask app
 
 # Instructions
 
-These required modules can be installed using the packet manager for Python3, pip3. I would advise to first create a virtual environment in order to isolate the application first. Python3 has a virtual environment as part of its dev-package: venv.
+The required modules can be installed using the packet manager for Python3, pip3. I would advise to first create a virtual environment in order to isolate the application. Python3 has a virtual environment as part of its dev-package: venv.
 
 The modules required can be acquired by performing:
 
