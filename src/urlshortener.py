@@ -10,7 +10,7 @@ from urllib.parse import urlparse
 
 
 app = Flask(__name__)
-hostAddress = 'http://localhost:8000/'
+hostAddress = 'http://localhost:8000/' # Change this to be in line with the IP/Port number that is used for the gunicorn server
 
 
 # App method for index
