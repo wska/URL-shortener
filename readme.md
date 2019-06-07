@@ -2,7 +2,7 @@
 A small URL shortener using Python, Flask, gunicorn, Sqlite3 and a bit of Boostrap. 
 
 # Implementation specifications:
-The URL shortener was developed using Python 3.6, Flask 0.12.3 & gunicorn 19.9.0, and Sqlite3, which is included by default in Python3.
+The URL shortener was developed using Python 3.6, Flask 0.12.3, gunicorn 19.9.0, and Sqlite3, which is included by default in Python3.
 The URL shortening algorithm is done by using base 62 encoding (covered by the regular expression [a-zA-Z0-9]).
 Flask was used to develop the RESTful HTTP web server and the endpoints for the URL Shortener. I choose to use Sqlite3 and a database implementation, which allows the state of the application to persist even after being shut down.
 While Flask is an excellent library to quickly get a HTTP server up and running, the default development server is not meant for production deployment. However,
