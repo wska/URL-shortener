@@ -32,7 +32,7 @@ def reset_table():
 
 def main():
     initialize_table()
-    reset_table()
+    #reset_table() # Remove comment if you wish to reset the database upon startup. Otherwise the state will persist even if the application is shut down.
 
 if __name__ == "__main__":
     main()
