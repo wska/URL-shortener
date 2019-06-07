@@ -1,5 +1,5 @@
 # URL-shortener
-A small URL shortener using Python, Flask, gunicorn, Sqlite3 and a bit of Boostrap. 
+A small URL shortener using Python, Flask, gunicorn, Sqlite3 and a bit of Bootstrap. 
 
 # Implementation specifications:
 The URL shortener was developed using Python 3.6, Flask 0.12.3, gunicorn 19.9.0, and Sqlite3, which is included by default in Python3.
